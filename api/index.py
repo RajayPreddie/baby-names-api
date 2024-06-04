@@ -53,7 +53,16 @@ async def lifespan(app: FastAPI):
     # Any teardown tasks if needed
 
 app = FastAPI(lifespan=lifespan)
-
+# TODO: follow FastAPI documentation to set things up properly
+# TODO: add API endpoints that would be useful for the users
+# TODO: get all baby names
+# TODO: search for baby names with a particular attribute
+# TODO: search with multiple attributes
+# TODO: Obtaining a random baby name
+# TODO: Obtaining a list of the baby names in alphabetical order
+# TODO: Obtaining a list of the baby names sorted by rank
+# TODO: Obtaining a list of the baby names sorted by count
+# TODO: Obtainign baby names with particular count or rank
 @app.get("/")
 def read_root():
     return {"Hello": "World"}
