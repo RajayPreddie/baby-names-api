@@ -66,14 +66,6 @@ app = FastAPI(lifespan=lifespan)
 def read_root():
     return {"Hello": "World"}
 
-@app.get("/names", response_model=List[str])
-def get_names(db: Session = Depends(get_db)):
-    try:
-        result = db.query(BabyNames.child_first_name).all()
-        names = [name for name, in result]
-        return names
-    except Exception as e:
-        raise HTTPException(status_code=500, detail=f"Error fetching names: {str(e)}")
 
 @app.get("/names", response_model=List[BabyNames])
 def get_names(db: Session = Depends(get_db)):
