@@ -53,7 +53,6 @@ async def lifespan(app: FastAPI):
     # Any teardown tasks if needed
 
 app = FastAPI(lifespan=lifespan)
-# TODO: follow FastAPI documentation to set things up properly
 # TODO: add API endpoints that would be useful for the users
 # TODO: get all baby names
 # TODO: search for baby names with a particular attribute
@@ -75,6 +74,15 @@ def get_names(db: Session = Depends(get_db)):
         return names
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Error fetching names: {str(e)}")
+
+@app.get("/names", response_model=List[BabyNames])
+def get_names(db: Session = Depends(get_db)):
+    try:
+        # Obtain all of the baby names
+        names = db.query(BabyNames).all()
+        return names
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Error: {str(e)}")
 
 @app.get("/names/{name_id}", response_model=str)
 def get_name(name_id: uuid.UUID, db: Session = Depends(get_db)):
