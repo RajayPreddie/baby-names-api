@@ -53,6 +53,7 @@ async def lifespan(app: FastAPI):
     # Any teardown tasks if needed
 
 app = FastAPI(lifespan=lifespan)
+# TODO: configure FastAPI and SQLAlchemy app structure
 # TODO: add API endpoints that would be useful for the users
 # TODO: get all baby names
 # TODO: search for baby names with a particular attribute
