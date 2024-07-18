@@ -1,9 +1,10 @@
 import { Router } from 'express';
 import BabyName from '../models/BabyName';
 
-
+// Instantiate the router
 const router = Router();
 
+// Obtain all baby names
 router.get('/', async (req, res) => {
   const { page = 1, limit = 10 } = req.query; // Default to page 1, limit 10
   const offset = (parseInt(page as string, 10) - 1) * parseInt(limit as string, 10);
