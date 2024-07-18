@@ -1,6 +1,7 @@
 import { DataTypes, Model, Optional } from 'sequelize';
 import sequelize from '../sequelize';
 
+
 interface BabyNameAttributes {
   id: string;
   birth_year: number;

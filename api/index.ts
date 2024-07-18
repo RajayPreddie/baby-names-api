@@ -3,6 +3,7 @@ import dotenv from 'dotenv';
 import { Sequelize } from 'sequelize';
 import babyNameRoutes from '../src/routes/babyNames';
 
+
 dotenv.config();
 
 const app = express();
